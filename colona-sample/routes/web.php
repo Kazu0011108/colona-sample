@@ -11,6 +11,14 @@
 |
 */
 
+Route::group(['prefix' => 'admin', 'middleware'=> 'guest:admin'], function(){
+    Route::get('/', function (){
+        return view('admin.welcome');
+    });
+    
+    Route::get('login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.login');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
