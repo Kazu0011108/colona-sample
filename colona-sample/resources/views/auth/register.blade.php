@@ -15,7 +15,7 @@
                     <label for="name" class="col-md-5 col-form-label text-md-left">氏名<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
                     <div class="col-md-7">
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror samazon-login-input" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="侍 太郎">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror samazon-login-input" name="name" value="{{ old('name') }}" required autocomplete="name">
 
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                     <label for="email" class="col-md-5 col-form-label text-md-left">メールアドレス<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
                     <div class="col-md-7">
-                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror samazon-login-input" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="samurai@samurai.com">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror samazon-login-input" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                     <label for="password" class="col-md-5 col-form-label text-md-left">電話番号<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
                     <div class="col-md-7">
-                        <input type="text" class="form-control @error('phone') is-invalid @enderror samazon-login-input" name="phone" required placeholder="03-5790-9039">
+                        <input type="text" class="form-control @error('phone') is-invalid @enderror samazon-login-input" name="phone">
                     </div>
                 </div>
 
@@ -68,6 +68,14 @@
 
                     <div class="col-md-7">
                         <input id="password-confirm" type="password" class="form-control samazon-login-input" name="password_confirmation" required autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                <label for="troupes" class="col-md-5 col-form-label text-md-left">劇団ID<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
+
+                <div class="col-md-7">
+                        <input type="text" class="form-control @error('troupes') is-invalid @enderror samazon-login-input" name="troupes">
                     </div>
                 </div>
 
