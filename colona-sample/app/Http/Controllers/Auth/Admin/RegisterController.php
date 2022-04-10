@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth\Admin;
 
-use App\User;
+use App\Admin;
+use App\Troupe;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -30,7 +32,7 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/admin/home';
 
-    public function showRegisterFrom()
+    public function showRegisterForm()
 
     {
       return view('admin.auth.register');  
@@ -64,16 +66,20 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  Request  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
-        return Admin::create([
+        $troupe = Troupe::create([
+            'name' => $data['troupes']
+        ]);
+        $admin = Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        return compact('troupe', 'admin');
     }
 
     protected function guard()

@@ -25,6 +25,23 @@
                     </div>
                 </div>
 
+                <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <div class="form-group row">
+                    <label for="name" class="col-md-5 col-form-label text-md-left">カナ<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
+
+                    <div class="col-md-7">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror samazon-login-input" name="name" value="{{ old('name') }}" required autocomplete="name">
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>カナを入力してください</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label for="email" class="col-md-5 col-form-label text-md-left">メールアドレス<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 
